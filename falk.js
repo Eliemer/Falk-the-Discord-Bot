@@ -3,11 +3,19 @@ var bot = new Discord.Client();
 var token = "MjcyMDE0NDEwNTIyOTUxNjgw.C5lo4w.SpJBWNsC2JCJYjR19AHBLUQz9Sc";
 var prefix = "falk.";
 var idle = "with his prey";
+var ready = true;
+var newbRole = "249282809515081729";
 
 // Confirmation of bot start
 bot.on("ready", () => {
 	console.log("Bot is running");
 	bot.user.setGame(idle);
+});
+
+// show whether the bot is reconnecting
+bot.on("reconnecting", () => {
+	console.log("Reconnecting...");
+	bot.user.setGame("Reconnecting");
 });
 
 // basic response to Falk being mentioned
@@ -25,6 +33,7 @@ bot.on("guildMemberAdd", member => {
 		while (newMember) {
           	console.log(member.user.username + "(" + member.user.id + ")" + " has joined");
 			msg.channel.send(member.user.username + " has joined the server");
+			member.addRole(newbRole);
 			newMember = false;
 		}
         console.log ("New user: " + member.user.id + " has been processed");
