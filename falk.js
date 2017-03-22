@@ -22,10 +22,10 @@ bot.on("reconnecting", () => {
 bot.on("message", msg => {
     if(msg.content === prefix + "help"){
         console.log(msg.author.username + " just asked for help");
-        msg.channel.sendCode("Markdown", "**Falk's help Menu** \n All commands begin with " + prefix +
-        "\n*myavatar*: Display your current avatar \n" +
-        "*ping*: Display your latency with falk \n" +
-        "*restart*: Restart Falk (for host only)\n");
+        msg.channel.send("```Markdown" + "\n\<\*\*Falk's Help Menu\*\* \n All commands begin with " + prefix + "\>" +
+        "\n\n\*myavatar\*: Display your current avatar \n" +
+        "\*ping\*: Display your latency with falk \n" +
+        "\*restart\*: Restart Falk (for host only)\n" + "```");
     }
 });
 
