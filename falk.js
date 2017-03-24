@@ -5,6 +5,7 @@ var prefix = "falk.";
 var idle = "with his prey";
 var ready = true;
 var newbRole = "249282809515081729";
+var afk = "alone, afk";
 
 // Confirmation of bot start
 bot.on("ready", () => {
@@ -29,6 +30,13 @@ bot.on("message", msg => {
     }
 });
 
+// basic change game name
+bot.on("message", msg => {
+	if(msg.content === prefix + "setmeas afk"){
+		msg.author.presence.status("afk");
+	}
+});
+
 // basic response to Falk being mentioned
 bot.on("message", msg => {
 	if(msg.isMentioned(bot.user.id)) {
@@ -37,19 +45,13 @@ bot.on("message", msg => {
 	}
 });
 
-// autorole plus console message
+/* autorole plus console message
 bot.on("guildMemberAdd", member => {
-	newMember = true;
-	bot.on("message", msg => { 
-		while (newMember) {
-          	console.log(member.user.username + "(" + member.user.id + ")" + " has joined");
-			msg.channel.send(member.user.username + " has joined the server");
-			member.addRole(newbRole);
-			newMember = false;
-		}
-        console.log ("New user: " + member.user.id + " has been processed");
-	})
-});
+    console.log(member.user.username + "(" + member.user.id + ")" + " has joined");
+    member.addRole(newbRole);
+    member.channel.send(member.user.username + " has joined the server");
+  console.log ("New user: " + member.user.id + " has been processed");
+}); */
 
 // display your avatar
 bot.on("message", msg => {
@@ -61,11 +63,11 @@ bot.on("message", msg => {
 	}
 });
 
-// leave server console message
+/* leave server console message
 bot.on("guildMemberRemove", member => {
 	console.log(member.user.username + "(" + member.user.id + ")" + " left the server");
              msg.channel.send(member.user.username + " has left the server").catch(console.error);
-});
+}); */
 
 // ping pong
 bot.on("message", msg => {
