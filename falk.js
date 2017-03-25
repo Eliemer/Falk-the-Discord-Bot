@@ -30,13 +30,6 @@ bot.on("message", msg => {
     }
 });
 
-// basic change game name
-bot.on("message", msg => {
-	if(msg.content === prefix + "setmeas afk"){
-		msg.author.presence.status("afk");
-	}
-});
-
 // basic response to Falk being mentioned
 bot.on("message", msg => {
 	if(msg.isMentioned(bot.user.id)) {
