@@ -21,13 +21,23 @@ bot.on("reconnecting", () => {
 
 // help command
 bot.on("message", msg => {
-    if(msg.content === prefix + "help"){
+    if(msg.content === prefix + "help") {
         console.log(msg.author.username + " just asked for help");
-        msg.channel.send("```Markdown" + "\n\<\*\*Falk's Help Menu\*\* \n All commands begin with " + prefix + "\>" +
-        "\n\n\*myavatar\*: Display your current avatar \n" +
-        "\*ping\*: Display your latency with falk \n" +
-        "\*restart\*: Restart Falk (for host only)\n" + "```");
-    }
+        msg.channel.send("`Falk's Help Menu`\n\n" +
+                "All commands have the form of " + prefix + "[command]\n\n" + 
+                "`myavatar`: Display your current Discord Avatar\n" +
+                "`ping`: Display Falk's latency\n" +
+                "`restart`: Restart Falk (for host only)\n" +
+                "`die`: Shutdown Falk (for host only)\n");
+	}
+});
+
+// buttsax joke
+bot.on("message", msg => {
+	if(msg.content.includes("buttsax")) {
+	console.log(msg.author.username + " initiated the call of the buttsax");
+	msg.channel.send(":peach::saxophone::notes::notes::notes::notes::notes::notes:");
+	}
 });
 
 // basic response to Falk being mentioned
