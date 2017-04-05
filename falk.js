@@ -24,7 +24,6 @@ bot.on("reconnecting", () => {
 	bot.user.setGame("Reconnecting");
 });
 
-// message commands
 bot.on("message", msg => {
     var msgParts = msg.content.split(" ");
     var command = msgParts[0].toLowerCase();// first word of message
